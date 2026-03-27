@@ -84,11 +84,15 @@ export interface Config {
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
   };
   db: {
-    defaultIDType: string;
+    defaultIDType: number;
   };
   fallbackLocale: null;
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    header: Header;
+  };
+  globalsSelect: {
+    header: HeaderSelect<false> | HeaderSelect<true>;
+  };
   locale: null;
   widgets: {
     collections: CollectionsWidget;
@@ -122,7 +126,7 @@ export interface UserAuthOperations {
  * via the `definition` "users".
  */
 export interface User {
-  id: string;
+  id: number;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -147,8 +151,9 @@ export interface User {
  * via the `definition` "media".
  */
 export interface Media {
-  id: string;
+  id: number;
   alt: string;
+  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -166,7 +171,7 @@ export interface Media {
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
-  id: string;
+  id: number;
   key: string;
   data:
     | {
@@ -183,20 +188,20 @@ export interface PayloadKv {
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
-  id: string;
+  id: number;
   document?:
     | ({
         relationTo: 'users';
-        value: string | User;
+        value: number | User;
       } | null)
     | ({
         relationTo: 'media';
-        value: string | Media;
+        value: number | Media;
       } | null);
   globalSlug?: string | null;
   user: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   };
   updatedAt: string;
   createdAt: string;
@@ -206,10 +211,10 @@ export interface PayloadLockedDocument {
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-  id: string;
+  id: number;
   user: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   };
   key?: string | null;
   value?:
@@ -229,7 +234,7 @@ export interface PayloadPreference {
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-  id: string;
+  id: number;
   name?: string | null;
   batch?: number | null;
   updatedAt: string;
@@ -263,6 +268,7 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  prefix?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -314,6 +320,116 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header".
+ */
+export interface Header {
+  id: number;
+  logo?: {
+    /**
+     * Recommended: SVG or transparent PNG, ideally ≤ 200 × 60 px.
+     */
+    image?: (number | null) | Media;
+    dimensions?: {
+      width?: number | null;
+    };
+  };
+  /**
+   * Add up to 8 top-level navigation links.
+   */
+  navItems?:
+    | {
+        label: string;
+        link: {
+          type?: ('internal' | 'external') | null;
+          /**
+           * For internal links use a relative path, e.g. /about
+           */
+          url: string;
+          newTab?: boolean | null;
+        };
+        /**
+         * Leave empty for a simple link; populate for a dropdown menu.
+         */
+        subItems?:
+          | {
+              label: string;
+              url: string;
+              newTab?: boolean | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  cta?: {
+    enabled?: boolean | null;
+    label?: string | null;
+    link?: {
+      type?: ('internal' | 'external') | null;
+      url: string;
+      newTab?: boolean | null;
+    };
+    variant?: ('primary' | 'secondary' | 'outline' | 'ghost') | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header_select".
+ */
+export interface HeaderSelect<T extends boolean = true> {
+  logo?:
+    | T
+    | {
+        image?: T;
+        dimensions?:
+          | T
+          | {
+              width?: T;
+            };
+      };
+  navItems?:
+    | T
+    | {
+        label?: T;
+        link?:
+          | T
+          | {
+              type?: T;
+              url?: T;
+              newTab?: T;
+            };
+        subItems?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+              newTab?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  cta?:
+    | T
+    | {
+        enabled?: T;
+        label?: T;
+        link?:
+          | T
+          | {
+              type?: T;
+              url?: T;
+              newTab?: T;
+            };
+        variant?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
