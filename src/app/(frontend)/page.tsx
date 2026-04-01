@@ -5,6 +5,7 @@ import React from 'react'
 import { fileURLToPath } from 'url'
 
 import config from '@/payload.config'
+import Hero from '@/blocks/Hero/Hero'
 
 export default async function HomePage() {
   const headers = await getHeaders()
@@ -15,9 +16,8 @@ export default async function HomePage() {
   const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
 
   return (
-    <div className="flex flex-col gap-4">
-      <h1 className="text-red-500">Home</h1>
-      <p className="">Welcome to your new project.</p>
+    <div>
+      <Hero />
     </div>
   )
 }

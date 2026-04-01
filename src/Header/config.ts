@@ -41,9 +41,9 @@ export const Header: GlobalConfig = {
               fields: [
                 {
                   name: 'width',
-                  type: 'number',
+                  type: 'text',
                   label: 'Width (px)',
-                  defaultValue: 120,
+                  defaultValue: '120px',
                   admin: { width: '50%' },
                 },
               ],

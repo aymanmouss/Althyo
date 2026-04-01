@@ -1,6 +1,6 @@
 import type { Header } from '@/payload-types'
 import Link from 'next/link'
-import NavItemWithDropdown from './nav.client'
+import NavDropdown from './NavDropdown'
 
 type Props = {
   navItems: Header['navItems']
@@ -8,7 +8,7 @@ type Props = {
 
 export default function Nav({ navItems }: Props) {
   return (
-    <nav aria-label="Main navigation">
+    <nav aria-label="Main navigation" className="hidden nav:flex">
       <ul className="flex items-center gap-4">
         {navItems?.map((navItem, i) =>
           !navItem?.subItems?.length ? (
@@ -16,7 +16,7 @@ export default function Nav({ navItems }: Props) {
               <Link href={navItem.link.url}>{navItem.label}</Link>
             </li>
           ) : (
-            <NavItemWithDropdown key={i} navItem={navItem} />
+            <NavDropdown key={i} navItem={navItem} />
           ),
         )}
       </ul>
