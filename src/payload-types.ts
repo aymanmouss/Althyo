@@ -181,9 +181,16 @@ export interface Page {
   slug: string;
   layout?:
     | {
-        heading: string;
+        heading?: {
+          text1?: string | null;
+          text2?: string | null;
+        };
         highlightWord: string;
-        subtitle?: string | null;
+        subtitle?: {
+          text1?: string | null;
+          text2?: string | null;
+          text3?: string | null;
+        };
         primaryCta?: {
           label?: string | null;
           url?: string | null;
@@ -192,8 +199,6 @@ export interface Page {
           label?: string | null;
           url?: string | null;
         };
-        imageLeft?: (number | null) | Media;
-        imageRight?: (number | null) | Media;
         id?: string | null;
         blockName?: string | null;
         blockType: 'hero';
@@ -339,9 +344,20 @@ export interface PagesSelect<T extends boolean = true> {
         hero?:
           | T
           | {
-              heading?: T;
+              heading?:
+                | T
+                | {
+                    text1?: T;
+                    text2?: T;
+                  };
               highlightWord?: T;
-              subtitle?: T;
+              subtitle?:
+                | T
+                | {
+                    text1?: T;
+                    text2?: T;
+                    text3?: T;
+                  };
               primaryCta?:
                 | T
                 | {
@@ -354,8 +370,6 @@ export interface PagesSelect<T extends boolean = true> {
                     label?: T;
                     url?: T;
                   };
-              imageLeft?: T;
-              imageRight?: T;
               id?: T;
               blockName?: T;
             };

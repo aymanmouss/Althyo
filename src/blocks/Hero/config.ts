@@ -2,10 +2,32 @@ import { Block } from 'payload'
 
 export const HeroBlock: Block = {
   slug: 'hero',
+  labels: {
+    singular: 'Hero',
+    plural: 'Hero',
+  },
+  admin: {
+    disableBlockName: true,
+  },
   fields: [
-    { name: 'heading', type: 'text', required: true },
+    {
+      name: 'heading',
+      type: 'group',
+      fields: [
+        { name: 'text1', type: 'text' },
+        { name: 'text2', type: 'text' },
+      ],
+    },
     { name: 'highlightWord', type: 'text', required: true },
-    { name: 'subtitle', type: 'textarea' },
+    {
+      name: 'subtitle',
+      type: 'group',
+      fields: [
+        { name: 'text1', type: 'textarea' },
+        { name: 'text2', type: 'textarea' },
+        { name: 'text3', type: 'textarea' },
+      ],
+    },
     {
       name: 'primaryCta',
       type: 'group',
@@ -22,7 +44,5 @@ export const HeroBlock: Block = {
         { name: 'url', type: 'text' },
       ],
     },
-    { name: 'imageLeft', type: 'upload', relationTo: 'media' },
-    { name: 'imageRight', type: 'upload', relationTo: 'media' },
   ],
 }
