@@ -180,29 +180,43 @@ export interface Page {
    */
   slug: string;
   layout?:
-    | {
-        heading?: {
-          text1?: string | null;
-          text2?: string | null;
-        };
-        highlightWord: string;
-        subtitle?: {
-          text1?: string | null;
-          text2?: string | null;
-          text3?: string | null;
-        };
-        primaryCta?: {
-          label?: string | null;
-          url?: string | null;
-        };
-        secondaryCta?: {
-          label?: string | null;
-          url?: string | null;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'hero';
-      }[]
+    | (
+        | {
+            heading?: {
+              text1?: string | null;
+              text2?: string | null;
+            };
+            highlightWord: string;
+            subtitle?: {
+              text1?: string | null;
+              text2?: string | null;
+              text3?: string | null;
+            };
+            primaryCta?: {
+              label?: string | null;
+              url?: string | null;
+            };
+            secondaryCta?: {
+              label?: string | null;
+              url?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero';
+          }
+        | {
+            title?: string | null;
+            logos?:
+              | {
+                  logo?: (number | null) | Media;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'logo-slider';
+          }
+      )[]
     | null;
   meta?: {
     title?: string | null;
@@ -369,6 +383,19 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     label?: T;
                     url?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'logo-slider'?:
+          | T
+          | {
+              title?: T;
+              logos?:
+                | T
+                | {
+                    logo?: T;
+                    id?: T;
                   };
               id?: T;
               blockName?: T;

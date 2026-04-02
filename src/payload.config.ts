@@ -39,6 +39,10 @@ export default buildConfig({
       collections: {
         media: {
           prefix: process.env.S3_PROJECT_NAME || '',
+          disableLocalStorage: true,
+          generateFileURL: ({ filename, prefix }) => {
+            return `${process.env.NEXT_PUBLIC_MEDIA_URL}/${prefix}/${filename}`
+          },
         },
       },
       bucket: process.env.S3_BUCKET || '',

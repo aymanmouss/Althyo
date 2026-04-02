@@ -11,6 +11,15 @@
         --background-image-gradient-btn → bg-gradient-btn
 ═══════════════════════════════════════════════════════════════ */
 @theme inline {
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  --animate-marquee: marquee 22s linear infinite;
   /* ─── Fonts ─────────────────────────────────────────────── */
   --font-heading: var(--font-poppins), 'Poppins', sans-serif;
   --font-sans: var(--font-dm-sans), 'DM Sans', sans-serif;

@@ -7,12 +7,14 @@ const poppins = Poppins({
   subsets: ['latin'],
   weight: ['400', '500'],
   variable: '--font-poppins',
+  display: 'swap',
 })
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
   weight: ['400', '500'],
   variable: '--font-dm-sans',
+  display: 'swap',
 })
 
 export const metadata = {

@@ -1,6 +1,7 @@
 import { getPayload } from 'payload'
 import config from '@/payload.config'
-import { blockComponents } from '@/blocks'
+import { RenderBlocks } from '@/blocks/RenderBlocks'
+import { Fragment } from 'react/jsx-runtime'
 
 export default async function HomePage() {
   const payloadConfig = await config
@@ -13,12 +14,8 @@ export default async function HomePage() {
   const page = docs[0]
 
   return (
-    <div>
-      {page?.layout?.map((block, i) => {
-        const Component = blockComponents[block.blockType]
-        if (!Component) return null
-        return <Component key={i} {...block} />
-      })}
-    </div>
+    <Fragment>
+      <RenderBlocks blocks={page?.layout ?? []} />
+    </Fragment>
   )
 }
