@@ -16,16 +16,10 @@ export default function LogoSlider({ title, logos }: Props) {
   return (
     <section className="py-15" aria-label={title ?? 'Nos clients'}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {title && (
-          <h2 className="text-center mb-10 text-[font-size-body-headline]">{title}</h2>
-        )}
+        {title && <p className="text-center mb-10 text-[font-size-body-headline]">{title}</p>}
 
         {/* Desktop: static grid */}
-        <div
-          className="hidden lg:grid grid-cols-4 gap-8"
-          role="list"
-          aria-label="Logo clients"
-        >
+        <div className="hidden lg:grid grid-cols-4 gap-8" role="list" aria-label="Logo clients">
           {brands.map((logo, i) => (
             <div
               key={logo.id ?? i}
