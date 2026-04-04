@@ -14,7 +14,7 @@ export default function LogoSlider({ title, logos }: Props) {
   if (brands.length === 0) return null
 
   return (
-    <section className="py-15" aria-label={title ?? 'Nos clients'}>
+    <section className="pb-15 pt-5 bg-[#efefef4a]" aria-label={title ?? 'Nos clients'}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {title && <p className="text-center mb-10 text-[font-size-body-headline]">{title}</p>}
 

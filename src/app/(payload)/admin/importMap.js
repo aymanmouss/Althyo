@@ -1,9 +1,9 @@
-import { NavRowLabel as NavRowLabel_35c4f07b94077a54ab0db31fba2fa85b } from '../../../Header/RowLabel'
+import { RowLabel as RowLabel_3c68020bfd56077c62f99d476b9c8809 } from '../../../lib/RowLabel'
 import { S3ClientUploadHandler as S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24 } from '@payloadcms/storage-s3/client'
 import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 
 export const importMap = {
-  "/Header/RowLabel#NavRowLabel": NavRowLabel_35c4f07b94077a54ab0db31fba2fa85b,
+  "/lib/RowLabel#RowLabel": RowLabel_3c68020bfd56077c62f99d476b9c8809,
   "@payloadcms/storage-s3/client#S3ClientUploadHandler": S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24,
   "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1
 }

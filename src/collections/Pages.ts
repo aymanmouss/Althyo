@@ -1,7 +1,8 @@
-// src/collections/Pages.ts
 import { CollectionConfig } from 'payload'
 import { HeroBlock } from '@/blocks/Hero/config'
 import { LogoSliderBlock } from '@/blocks/LogoSlider/config'
+import { AboutBlock } from '@/blocks/About/config'
+import { ServicesBlock } from '@/blocks/Services/config'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -29,6 +30,8 @@ export const Pages: CollectionConfig = {
       blocks: [
         HeroBlock,
         LogoSliderBlock,
+        AboutBlock,
+        ServicesBlock,
         // add more blocks later
       ],
     },

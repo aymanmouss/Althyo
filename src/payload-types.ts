@@ -216,6 +216,54 @@ export interface Page {
             blockName?: string | null;
             blockType: 'logo-slider';
           }
+        | {
+            title?: string | null;
+            stats?:
+              | {
+                  number?: string | null;
+                  description?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            description?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'about';
+          }
+        | {
+            buttonLabel?: string | null;
+            buttonUrl?: string | null;
+            description?: string | null;
+            title?: string | null;
+            services?:
+              | {
+                  icon?:
+                    | (
+                        | 'brand'
+                        | 'web'
+                        | 'uiux'
+                        | 'marketing'
+                        | 'seo'
+                        | 'photo'
+                        | 'house'
+                        | 'shoppingCart'
+                        | 'cloudUpload'
+                        | 'tabletSmartphone'
+                        | 'mapPinHouse'
+                      )
+                    | null;
+                  title?: string | null;
+                  description?: string | null;
+                  linkLabel?: string | null;
+                  linkUrl?: string | null;
+                  style?: ('default' | 'featured') | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'services';
+          }
       )[]
     | null;
   meta?: {
@@ -395,6 +443,42 @@ export interface PagesSelect<T extends boolean = true> {
                 | T
                 | {
                     logo?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        about?:
+          | T
+          | {
+              title?: T;
+              stats?:
+                | T
+                | {
+                    number?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              description?: T;
+              id?: T;
+              blockName?: T;
+            };
+        services?:
+          | T
+          | {
+              buttonLabel?: T;
+              buttonUrl?: T;
+              description?: T;
+              title?: T;
+              services?:
+                | T
+                | {
+                    icon?: T;
+                    title?: T;
+                    description?: T;
+                    linkLabel?: T;
+                    linkUrl?: T;
+                    style?: T;
                     id?: T;
                   };
               id?: T;

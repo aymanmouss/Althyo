@@ -85,7 +85,8 @@
   --font-size-h2: 6rem; /* 96px  */
   --font-size-h3: 3rem; /* 48px  */
   --font-size-body-headline: 2rem; /* 32px  */
-  --font-size-body: 1.5rem; /* 24px  */
+  /* --font-size-body: 1.5rem; 24px  */
+  --font-size-body: clamp(1.125rem, 2.5vw, 1.5rem); /* 24px  */
   --font-size-body-ui: 1.2rem; /* 20px — nav links, buttons */
 
   /* ─── Line heights ───────────────────────────────────────── */
@@ -266,5 +267,8 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+  .text-poppins {
+    font-family: var(--font-heading);
   }
 }

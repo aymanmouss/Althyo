@@ -16,7 +16,7 @@ export default function Hero({
   secondaryCta,
 }: Props) {
   return (
-    <section className="bg-[#efefef4a] flex flex-col items-center justify-start sm:justify-center py-13">
+    <section className="bg-[#efefef4a] flex flex-col items-center justify-start sm:justify-center py-16">
       <div className="flex flex-col items-center justify-center gap-3 relative container-site">
         {/* Single h1 that wraps both heading lines and the highlight pill */}
         <h1 className="text-center text-4xl md:text-5xl lg:text-7xl">
@@ -92,7 +92,7 @@ export default function Hero({
           alt="Hero illustration"
           width={150}
           height={100}
-          className="mt-10 w-50"
+          className="mt-20 w-50"
           priority
         />
       </div>

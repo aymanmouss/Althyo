@@ -66,8 +66,9 @@ export const Header: GlobalConfig = {
         components: {
           // Row label shows the nav item label for quick scanning
           RowLabel: {
-            path: '/Header/RowLabel',
-            exportName: 'NavRowLabel',
+            path: '/lib/RowLabel',
+            exportName: 'RowLabel',
+            clientProps: { field: 'label', label: 'Navigation Item' },
           },
         },
       },

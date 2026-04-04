@@ -20,7 +20,6 @@ export default async function Header() {
               EN <Globe className="size-5" />
             </span>
           </Button>
-
           <Button className="hidden sm:flex">{cta?.label}</Button>
           <MobileMenu navItems={navItems} cta={cta} />
         </div>

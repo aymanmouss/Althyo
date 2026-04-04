@@ -3,10 +3,14 @@ import React, { Fragment } from 'react'
 import type { Page } from '@/payload-types'
 import Hero from './Hero/Hero'
 import LogoSlider from './LogoSlider/LogoSlider'
+import AboutBlock from './About/AboutBlock'
+import ServicesComponent from './Services/Component'
 
 const blockComponents = {
   hero: Hero,
   'logo-slider': LogoSlider,
+  about: AboutBlock,
+  services: ServicesComponent,
 }
 
 export const RenderBlocks: React.FC<{
@@ -26,7 +30,7 @@ export const RenderBlocks: React.FC<{
             const Block = blockComponents[blockType]
 
             if (Block) {
-              // @ts-expect-error there may be some mismatch between the expected types here
+              //  @ts-expect-error there may be some mismatch between the expected types here
               return <Block {...block} key={index} />
             }
           }
