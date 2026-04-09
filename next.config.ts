@@ -19,12 +19,12 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cal.com https://app.cal.com",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cal.eu https://*.cal.eu https://*.cal.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: blob: https://filebase.fr https://*.r2.cloudflarestorage.com",
-      "frame-src https://cal.com https://app.cal.com",
-      "connect-src 'self' https://cal.com https://app.cal.com",
+      'frame-src https://cal.eu https://*.cal.eu https://*.cal.com',
+      "connect-src 'self' https://cal.eu https://*.cal.eu https://*.cal.com",
       "worker-src 'self' blob:",
     ].join('; '),
   },
@@ -44,9 +44,7 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'filebase.fr' },
       { protocol: 'https', hostname: '*.r2.cloudflarestorage.com' },
     ],
-    localPatterns: [
-      { pathname: '/api/media/file/**' },
-    ],
+    localPatterns: [{ pathname: '/api/media/file/**' }],
   },
   allowedDevOrigins: ['192.168.1.69'],
   webpack: (webpackConfig) => {

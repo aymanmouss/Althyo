@@ -44,5 +44,11 @@ export const HeroBlock: Block = {
         { name: 'url', type: 'text' },
       ],
     },
+    {
+      name: 'images',
+      type: 'upload',
+      relationTo: 'media',
+      hasMany: true,
+    },
   ],
 }

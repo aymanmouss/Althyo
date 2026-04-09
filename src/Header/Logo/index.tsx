@@ -11,8 +11,8 @@ export default function HeaderLogo({ logo }: { logo: Header['logo'] }) {
   }
 
   return (
-    <Link href="/">
-      <img src={image?.url || ''} alt={image?.alt || 'Althyo — Agence web'} style={logoStyle} />
+    <Link href="/" aria-label="Althyo — retour à l'accueil">
+      <img src={image?.url || ''} alt="" style={logoStyle} />
     </Link>
   )
 }

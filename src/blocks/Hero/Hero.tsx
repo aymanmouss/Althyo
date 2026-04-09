@@ -14,6 +14,7 @@ export default function Hero({
   subtitle,
   primaryCta,
   secondaryCta,
+  images,
 }: Props) {
   return (
     <section className="bg-[#efefef4a] flex flex-col items-center justify-start sm:justify-center py-16">
@@ -86,15 +87,19 @@ export default function Hero({
             </Button>
           )}
         </div>
-
-        <Image
-          src="/api/media/file/6293.png"
-          alt="Hero illustration"
-          width={150}
-          height={100}
-          className="mt-20 w-50"
-          priority
-        />
+        {images?.map((image) =>
+          typeof image === 'number' ? null : (
+            <Image
+              key={image.id || ''}
+              src={image.url || ''}
+              alt={image.alt || ''}
+              width={150}
+              height={100}
+              className="mt-20 w-50"
+              priority
+            />
+          ),
+        )}
       </div>
     </section>
   )

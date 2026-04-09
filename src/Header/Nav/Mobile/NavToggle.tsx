@@ -10,7 +10,10 @@ export default function NavToggle({
   return (
     <button
       onClick={() => setIsOpen(!isOpen)}
-      className="flex flex-col justify-center items-center w-8 h-8 gap-1.5 "
+      className="flex flex-col justify-center items-center w-8 h-8 gap-1.5"
+      aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+      aria-expanded={isOpen}
+      aria-controls="mobile-drawer"
     >
       <span
         className={`block h-0.5 w-6 bg-black transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`}

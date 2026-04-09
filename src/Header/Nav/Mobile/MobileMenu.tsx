@@ -22,11 +22,20 @@ export default function MobileMenu({
 
       {/* Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 z-99 bg-black/40" onClick={() => setIsOpen(false)} />
+        <div
+          className="fixed inset-0 z-99 bg-black/40"
+          onClick={() => setIsOpen(false)}
+          aria-hidden="true"
+        />
       )}
 
       {/* Drawer */}
       <div
+        id="mobile-drawer"
+        role="dialog"
+        aria-modal={isOpen}
+        aria-label="Menu de navigation"
+        aria-hidden={!isOpen}
         className={`
           fixed top-0 right-0 z-100 h-full w-[320px] bg-white shadow-xl
           flex flex-col
@@ -39,7 +48,7 @@ export default function MobileMenu({
           <button
             onClick={() => setIsOpen(false)}
             className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-muted transition-colors"
-            aria-label="Close menu"
+            aria-label="Fermer le menu"
           >
             <X size={18} />
           </button>

@@ -3,7 +3,7 @@ import './styles.css'
 import { Poppins, DM_Sans } from 'next/font/google'
 import Header from '@/Header/Component'
 import Footer from '@/Footer/Footer'
-import { CookieBanner } from '@/components/CookieBanner'
+import CookieConsent from '@/components/CookieConsent'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -62,7 +62,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <Header />
         <main>{children}</main>
         <Footer />
-        <CookieBanner />
+        <CookieConsent variant="default" />
       </body>
     </html>
   )

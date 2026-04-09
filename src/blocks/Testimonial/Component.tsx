@@ -57,6 +57,7 @@ export default function TestimonialComponent({ title, description, testimonials 
                       src={testimonial.source?.url || ''}
                       alt={testimonial.company_name || 'Logo entreprise'}
                       fill
+                      sizes="(max-width: 768px) 112px, 112px"
                       className="object-contain"
                     />
                   </div>

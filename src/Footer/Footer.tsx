@@ -16,7 +16,7 @@ export default async function Footer() {
           <Link href={item.link} key={item.id} className="uppercase">
             {item.label}{' '}
             {footer?.navItems && index !== footer?.navItems?.length - 1 ? (
-              <span className="mx-2">|</span>
+              <span className="mx-2" aria-hidden="true">|</span>
             ) : (
               ''
             )}

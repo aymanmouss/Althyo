@@ -204,6 +204,7 @@ export interface Page {
               label?: string | null;
               url?: string | null;
             };
+            images?: (number | Media)[] | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'hero';
@@ -527,6 +528,7 @@ export interface PagesSelect<T extends boolean = true> {
                     label?: T;
                     url?: T;
                   };
+              images?: T;
               id?: T;
               blockName?: T;
             };

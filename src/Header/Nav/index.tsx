@@ -12,7 +12,7 @@ export default function Nav({ navItems }: Props) {
       <ul className="flex items-center gap-4">
         {navItems?.map((navItem, i) =>
           !navItem?.subItems?.length ? (
-            <li key={navItem.id}>
+            <li key={navItem.id} className="hover:text-primary transition-colors">
               <a href={navItem.link.url}>{navItem.label}</a>
             </li>
           ) : (
