@@ -19,6 +19,8 @@
       transform: translateX(-50%);
     }
   }
+  /* globals.css */
+
   --animate-marquee: marquee 22s linear infinite;
   /* ─── Fonts ─────────────────────────────────────────────── */
   --font-heading: var(--font-poppins), 'Poppins', sans-serif;
@@ -245,6 +247,18 @@
     font-weight: 400;
     line-height: var(--line-height-body-ui);
     letter-spacing: var(--letter-spacing-body);
+  }
+
+  /* ─── Keyboard focus (accessibilité WCAG 2.4.7) ─── */
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Supprime l'outline pour les utilisateurs souris uniquement */
+  :focus:not(:focus-visible) {
+    outline: none;
   }
 }
 

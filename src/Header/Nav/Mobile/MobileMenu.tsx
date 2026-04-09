@@ -22,13 +22,13 @@ export default function MobileMenu({
 
       {/* Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 z-40 bg-black/40" onClick={() => setIsOpen(false)} />
+        <div className="fixed inset-0 z-99 bg-black/40" onClick={() => setIsOpen(false)} />
       )}
 
       {/* Drawer */}
       <div
         className={`
-          fixed top-0 right-0 z-50 h-full w-[320px] bg-white shadow-xl
+          fixed top-0 right-0 z-100 h-full w-[320px] bg-white shadow-xl
           flex flex-col
           transform transition-transform duration-300 ease-in-out
           ${isOpen ? 'translate-x-0' : 'translate-x-full'}
@@ -51,13 +51,13 @@ export default function MobileMenu({
             {navItems?.map((navItem, i) =>
               !navItem?.subItems?.length ? (
                 <li key={navItem.id}>
-                  <Link
+                  <a
                     href={navItem.link.url}
                     onClick={() => setIsOpen(false)}
                     className="block py-4 text-foreground border-b border-border hover:text-primary transition-colors"
                   >
                     {navItem.label}
-                  </Link>
+                  </a>
                 </li>
               ) : (
                 <NavDropdown key={i} navItem={navItem} />
@@ -68,12 +68,11 @@ export default function MobileMenu({
 
         {/* CTA buttons — pinned to bottom */}
         <div className="flex flex-col gap-3 px-6 py-6 border-t border-border">
-          <Button variant="default" className="w-full" onClick={() => setIsOpen(false)}>
-            {cta?.label}
-          </Button>
-          <Button variant="outline" className="w-full" onClick={() => setIsOpen(false)}>
-            {cta?.label}
-          </Button>
+          <a href={cta?.link?.url || '#'}>
+            <Button variant="default" className="w-full" onClick={() => setIsOpen(false)}>
+              {cta?.label}
+            </Button>
+          </a>
         </div>
       </div>
     </div>

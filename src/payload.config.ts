@@ -10,6 +10,8 @@ import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { Header } from './Header/config'
 import { s3Storage } from '@payloadcms/storage-s3'
+import { ContactSubmissions } from './collections/ContactSubmissions'
+import { Footer } from './Footer/config'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -21,8 +23,8 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Pages],
-  globals: [Header],
+  collections: [Users, Media, Pages, ContactSubmissions],
+  globals: [Header, Footer],
   editor: lexicalEditor({
     features: ({ defaultFeatures }) => [...defaultFeatures, FixedToolbarFeature()],
   }),

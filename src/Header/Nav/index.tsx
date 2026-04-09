@@ -13,7 +13,7 @@ export default function Nav({ navItems }: Props) {
         {navItems?.map((navItem, i) =>
           !navItem?.subItems?.length ? (
             <li key={navItem.id}>
-              <Link href={navItem.link.url}>{navItem.label}</Link>
+              <a href={navItem.link.url}>{navItem.label}</a>
             </li>
           ) : (
             <NavDropdown key={i} navItem={navItem} />

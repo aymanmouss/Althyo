@@ -16,7 +16,7 @@ export default function ServicesComponent({
   buttonUrl,
 }: Props) {
   return (
-    <section className="py-25 bg-[#efefef4a]">
+    <section className="py-25 bg-[#efefef4a]" id="services">
       <div className="container-site">
         <header className="flex flex-col justify-between items-start">
           <div className="flex flex-col justify-start w-full gap-10">

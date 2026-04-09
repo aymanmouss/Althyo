@@ -5,12 +5,22 @@ import Hero from './Hero/Hero'
 import LogoSlider from './LogoSlider/LogoSlider'
 import AboutBlock from './About/AboutBlock'
 import ServicesComponent from './Services/Component'
+import FeaturesComponent from './Features/Component'
+import ProjectsComponent from './Projects/Component'
+import { ContactForm } from '@/blocks/Contact/ContactForm'
+import CalComponent from '@/blocks/Cal/Cal'
+import TestimonialComponent from './Testimonial/Component'
 
 const blockComponents = {
   hero: Hero,
   'logo-slider': LogoSlider,
   about: AboutBlock,
   services: ServicesComponent,
+  features: FeaturesComponent,
+  projects: ProjectsComponent,
+  contact: ContactForm,
+  cal: CalComponent,
+  testimonial: TestimonialComponent,
 }
 
 export const RenderBlocks: React.FC<{

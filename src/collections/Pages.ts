@@ -3,6 +3,11 @@ import { HeroBlock } from '@/blocks/Hero/config'
 import { LogoSliderBlock } from '@/blocks/LogoSlider/config'
 import { AboutBlock } from '@/blocks/About/config'
 import { ServicesBlock } from '@/blocks/Services/config'
+import { FeaturesBlock } from '@/blocks/Features/config'
+import { ProjectsBlock } from '@/blocks/Projects/config'
+import { ContactBlock } from '@/blocks/Contact/config'
+import CalBlock from '@/blocks/Cal/config'
+import TestimonialBlock from '@/blocks/Testimonial/config'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -32,10 +37,13 @@ export const Pages: CollectionConfig = {
         LogoSliderBlock,
         AboutBlock,
         ServicesBlock,
-        // add more blocks later
+        FeaturesBlock,
+        ProjectsBlock,
+        ContactBlock,
+        CalBlock,
+        TestimonialBlock,
       ],
     },
-    // SEO
     {
       name: 'meta',
       type: 'group',

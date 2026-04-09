@@ -17,6 +17,7 @@ const buttonVariants = cva(
 
         // Outline — transparent, dark border 20% opacity
         outline: 'bg-transparent text-black border-2 border-black/20 hover:bg-black/5',
+        outlineWhite: 'bg-transparent text-white border-2 border-white/20 hover:bg-white/5',
 
         // Dark — black fill, white text
         dark: 'bg-black text-white hover:opacity-85',

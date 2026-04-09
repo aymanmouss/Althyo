@@ -1,4 +1,5 @@
 import type { Header } from '@/payload-types'
+import Link from 'next/link'
 
 export default function HeaderLogo({ logo }: { logo: Header['logo'] }) {
   const image = logo?.image
@@ -9,5 +10,9 @@ export default function HeaderLogo({ logo }: { logo: Header['logo'] }) {
     height: 'auto',
   }
 
-  return <img src={image?.url || ''} alt={image?.alt || ''} style={logoStyle} />
+  return (
+    <Link href="/">
+      <img src={image?.url || ''} alt={image?.alt || 'Althyo — Agence web'} style={logoStyle} />
+    </Link>
+  )
 }
