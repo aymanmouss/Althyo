@@ -6,6 +6,6 @@ export async function GET(request: NextRequest) {
 
   return NextResponse.json({
     received: secret,
-    env: process.env.REVALIDATE_SECRET,
+    env: process.env.REVALIDATE_SECRET ?? 'undefined',
   })
 }
