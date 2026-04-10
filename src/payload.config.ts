@@ -4,7 +4,6 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
-
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
@@ -12,6 +11,7 @@ import { Header } from './Header/config'
 import { s3Storage } from '@payloadcms/storage-s3'
 import { ContactSubmissions } from './collections/ContactSubmissions'
 import { Footer } from './Footer/config'
+import { migrations } from './migrations' // ✅ Ajouté
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -36,6 +36,8 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URL || '',
     },
+    migrationDir: path.resolve(dirname, 'migrations'),
+    prodMigrations: migrations,
   }),
   sharp,
   plugins: [
