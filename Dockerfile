@@ -70,8 +70,5 @@ ENV PORT 3000
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
 # Copy node_modules for payload migrate
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
-CMD HOSTNAME="0.0.0.0" NODE_OPTIONS="--no-deprecation" node -e "\
-  const { execSync } = require('child_process');\
-  try { execSync('node node_modules/payload/dist/bin.js migrate', {stdio: 'inherit', env: process.env}); }\
-  catch(e) { console.error('Migration failed:', e.message); }\
-  " && node server.js
+
+CMD HOSTNAME="0.0.0.0" node -e "const { execSync } = require('child_process'); try { execSync('NODE_OPTIONS=--no-deprecation node node_modules/payload/dist/bin.js migrate', {stdio: 'inherit', env: process.env}); } catch(e) { console.error(e.message); } require('./server.js')"
