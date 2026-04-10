@@ -404,20 +404,8 @@
           "primaryKey": false,
           "notNull": true
         },
-        "subtitle_text1": {
-          "name": "subtitle_text1",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "subtitle_text2": {
-          "name": "subtitle_text2",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "subtitle_text3": {
-          "name": "subtitle_text3",
+        "subtitle": {
+          "name": "subtitle",
           "type": "varchar",
           "primaryKey": false,
           "notNull": false
@@ -3834,6 +3822,6 @@
     "tables": {},
     "columns": {}
   },
-  "id": "a5c7000b-dea8-4d83-a879-7d85ae66b248",
+  "id": "e55fc7c4-7e6d-4331-b436-c91f8c41d2ea",
   "prevId": "00000000-0000-0000-0000-000000000000"
 }
