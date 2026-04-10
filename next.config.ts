@@ -32,9 +32,6 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   output: 'standalone',
-  env: {
-    REVALIDATE_SECRET: process.env.REVALIDATE_SECRET,
-  },
   async headers() {
     return [
       {
