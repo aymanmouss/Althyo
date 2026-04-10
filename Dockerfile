@@ -68,4 +68,6 @@ ENV PORT 3000
 
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
-CMD HOSTNAME="0.0.0.0" node server.js
+# Copy node_modules for payload migrate
+COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
+CMD HOSTNAME="0.0.0.0" node -e "const { execSync } = require('child_process'); try { execSync('node node_modules/payload/dist/bin.js migrate', {stdio: 'inherit', env: {...process.env}}); } catch(e) {} require('./server.js')"
