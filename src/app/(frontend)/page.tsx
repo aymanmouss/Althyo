@@ -17,7 +17,7 @@ const getHomePage = cache(async () => {
   return docs[0]
 })
 
-// export const revalidate = 3600
+export const revalidate = 3600
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getHomePage()
