@@ -4,34 +4,22 @@ import { NextResponse } from 'next/server'
 export async function POST(req: Request) {
   const secret = req.headers.get('x-revalidate-secret')
 
-  // Ensure env exists (avoids undefined comparison issues)
   if (!process.env.REVALIDATE_SECRET) {
-    return NextResponse.json(
-      { message: 'Server misconfigured: missing REVALIDATE_SECRET' },
-      { status: 500 },
-    )
+    return NextResponse.json({ message: 'Missing REVALIDATE_SECRET' }, { status: 500 })
   }
 
-  // Validate secret
   if (secret !== process.env.REVALIDATE_SECRET) {
     return NextResponse.json({ message: 'Invalid secret' }, { status: 401 })
   }
 
   try {
-    revalidatePath('/')
+    revalidatePath('/') // 👈 root
 
     return NextResponse.json({
       revalidated: true,
       path: '/',
-      timestamp: new Date().toISOString(),
     })
-  } catch (error) {
-    return NextResponse.json(
-      {
-        revalidated: false,
-        error: 'Error revalidating root',
-      },
-      { status: 500 },
-    )
+  } catch (e) {
+    return NextResponse.json({ revalidated: false }, { status: 500 })
   }
 }
