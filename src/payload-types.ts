@@ -191,11 +191,7 @@ export interface Page {
               text2?: string | null;
             };
             highlightWord: string;
-            subtitle?: {
-              text1?: string | null;
-              text2?: string | null;
-              text3?: string | null;
-            };
+            subtitle?: string | null;
             primaryCta?: {
               label?: string | null;
               url?: string | null;
@@ -509,13 +505,7 @@ export interface PagesSelect<T extends boolean = true> {
                     text2?: T;
                   };
               highlightWord?: T;
-              subtitle?:
-                | T
-                | {
-                    text1?: T;
-                    text2?: T;
-                    text3?: T;
-                  };
+              subtitle?: T;
               primaryCta?:
                 | T
                 | {

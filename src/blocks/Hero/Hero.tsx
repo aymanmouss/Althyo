@@ -17,7 +17,7 @@ export default function Hero({
   images,
 }: Props) {
   return (
-    <section className="bg-[#efefef4a] flex flex-col items-center justify-start sm:justify-center py-16">
+    <section className="bg-[#efefef4a] flex flex-col items-center justify-start sm:justify-center py-10 sm:py-16 ">
       <div className="flex flex-col items-center justify-center gap-3 relative container-site">
         {/* Single h1 that wraps both heading lines and the highlight pill */}
         <h1 className="text-center text-4xl md:text-5xl lg:text-7xl">
@@ -56,9 +56,9 @@ export default function Hero({
         </div>
 
         {/* Subtitle — use text-balance instead of manual <br> tags */}
-        {(subtitle?.text1 || subtitle?.text2 || subtitle?.text3) && (
+        {subtitle && (
           <p className="text-center text-lg md:text-xl lg:text-2xl max-w-4xl sm:mt-18 mt-10 mb-7 text-balance">
-            {[subtitle.text1, subtitle.text2, subtitle.text3].filter(Boolean).join(' ')}
+            {subtitle}
           </p>
         )}
 

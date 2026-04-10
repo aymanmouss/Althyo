@@ -21,12 +21,7 @@ export const HeroBlock: Block = {
     { name: 'highlightWord', type: 'text', required: true },
     {
       name: 'subtitle',
-      type: 'group',
-      fields: [
-        { name: 'text1', type: 'textarea' },
-        { name: 'text2', type: 'textarea' },
-        { name: 'text3', type: 'textarea' },
-      ],
+      type: 'textarea',
     },
     {
       name: 'primaryCta',

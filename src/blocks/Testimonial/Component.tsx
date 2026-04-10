@@ -9,7 +9,7 @@ export default function TestimonialComponent({ title, description, testimonials 
     <section className="py-25">
       <div className="container-site flex flex-col items-center gap-5">
         <div className="w-full bg-gradient-btn px-10 rounded-xl py-10 flex flex-col gap-5 text-white items-center justify-center">
-          <h2 className="text-center text-4xl md:text-5xl uppercase text-balance font-medium">
+          <h2 className="text-center text-3xl md:text-5xl uppercase text-balance font-medium">
             {title}
           </h2>
           {description && (
@@ -36,7 +36,7 @@ export default function TestimonialComponent({ title, description, testimonials 
                 </div>
 
                 <p className="text-balance text-xl leading-relaxed">{testimonial.text}</p>
-                <div className="flex items-center justify-between gap-5">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-5">
                   <div className="flex items-center gap-2 ">
                     <Image
                       src={testimonial.image?.url || ''}

@@ -11,12 +11,14 @@ export default async function Footer() {
   })
   return (
     <footer className="bg-secondary py-5">
-      <div className="border-b border-border flex items-center justify-center  pb-3">
+      <div className="border-b border-border flex flex-col sm:flex-row items-center justify-center  pb-3 gap-2">
         {footer?.navItems?.map((item, index) => (
-          <Link href={item.link} key={item.id} className="uppercase">
+          <Link href={item.link} key={item.id} className="uppercase text-sm md:text-lg">
             {item.label}{' '}
             {footer?.navItems && index !== footer?.navItems?.length - 1 ? (
-              <span className="mx-2" aria-hidden="true">|</span>
+              <span className="mx-2 hidden sm:block" aria-hidden="true">
+                |
+              </span>
             ) : (
               ''
             )}
@@ -24,7 +26,7 @@ export default async function Footer() {
         ))}
       </div>
       <div className="container-site flex items-center justify-center pt-3">
-        <p className="text-center text-lg text-balance">{footer?.copyright}</p>
+        <p className="text-center text-sm md:text-lg text-balance">{footer?.copyright}</p>
       </div>
     </footer>
   )
