@@ -12,6 +12,7 @@ const getHomePage = cache(async () => {
     collection: 'pages',
     where: { slug: { equals: 'home' } },
     limit: 1,
+    depth: 3,
   })
   return docs[0]
 })
