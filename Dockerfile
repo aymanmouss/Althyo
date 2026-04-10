@@ -20,8 +20,6 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# ✅ Désactive la génération statique des pages pendant le build
-# Payload n'a pas besoin de DB pour compiler le code
 ENV NEXT_PRIVATE_SKIP_VALIDATION=true
 ENV NEXT_TELEMETRY_DISABLED=1
 
@@ -50,8 +48,7 @@ RUN chown nextjs:nodejs .next
 
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-# ✅ Copier les migrations dans l'image finale
+COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=nextjs:nodejs /app/src/migrations ./src/migrations
 
 USER nextjs
@@ -60,5 +57,4 @@ EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
-# ✅ Lancer les migrations PUIS démarrer le serveur
 CMD node_modules/.bin/payload migrate && node server.js
