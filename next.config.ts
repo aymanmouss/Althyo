@@ -22,7 +22,7 @@ const securityHeaders = [
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cal.eu https://*.cal.eu https://*.cal.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
-      "img-src 'self' data: blob: https://filebase.fr https://*.r2.cloudflarestorage.com",
+      "img-src 'self' data: blob: https://filebase.fr https://*.r2.cloudflarestorage.com https://www.gravatar.com",
       'frame-src https://cal.eu https://*.cal.eu https://*.cal.com',
       "connect-src 'self' https://cal.eu https://*.cal.eu https://*.cal.com",
       "worker-src 'self' blob:",
