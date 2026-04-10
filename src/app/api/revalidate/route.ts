@@ -12,14 +12,10 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: 'Invalid secret' }, { status: 401 })
   }
 
-  try {
-    revalidatePath('/') // 👈 root
+  revalidatePath('/')
 
-    return NextResponse.json({
-      revalidated: true,
-      path: '/',
-    })
-  } catch (e) {
-    return NextResponse.json({ revalidated: false }, { status: 500 })
-  }
+  return NextResponse.json({
+    revalidated: true,
+    path: '/',
+  })
 }
