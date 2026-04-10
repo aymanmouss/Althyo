@@ -21,19 +21,20 @@ export const revalidate = 3600
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getHomePage()
   const meta = page?.meta
+  const fallbackTitle = 'Agence Web Immobilier & Sites Web Performants | Althyo'
+  const fallbackDescription =
+    'Althyo conçoit des sites web performants pour l’immobilier et les entreprises. CRM, gestion d’annonces, multidiffusion, hébergement et maintenance inclus.'
   const imageUrl =
-    typeof meta?.image === 'object'
-      ? meta.image?.url
-      : 'https://althyo.fr/og-default.png'
+    typeof meta?.image === 'object' ? meta.image?.url : 'https://althyo.fr/og-default.png'
 
   return {
-    title: meta?.title ?? 'Althyo — Agence Développement Web & Digital',
-    description: meta?.description ?? 'Agence spécialisée en développement web sur-mesure.',
+    title: meta?.title ?? fallbackTitle,
+    description: meta?.description ?? fallbackDescription,
     metadataBase: new URL('https://althyo.fr'),
     alternates: { canonical: 'https://althyo.fr' },
     openGraph: {
-      title: meta?.title ?? 'Althyo — Agence Développement Web & Digital',
-      description: meta?.description ?? 'Agence spécialisée en développement web sur-mesure.',
+      title: meta?.title ?? fallbackTitle,
+      description: meta?.description ?? fallbackDescription,
       url: 'https://althyo.fr',
       siteName: 'Althyo',
       locale: 'fr_FR',
@@ -44,9 +45,8 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: meta?.title ?? 'Althyo — Agence Web & Solutions Digitales',
-      description:
-        meta?.description ?? 'Althyo fusionne créativité et technologie pour les TPE & PME.',
+      title: meta?.title ?? fallbackTitle,
+      description: meta?.description ?? fallbackDescription,
       ...(imageUrl && { images: [imageUrl] }),
     },
   }

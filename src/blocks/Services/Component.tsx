@@ -20,7 +20,7 @@ export default function ServicesComponent({
       <div className="container-site">
         <header className="flex flex-col justify-between items-start">
           <div className="flex flex-col justify-start w-full gap-10">
-            <h2 className="text-balance lg:text-5xl md:text-5xl text-4xl max-w-xl">{title}</h2>
+            <h2 className="text-balance lg:text-5xl md:text-5xl text-4xl max-w-2xl">{title}</h2>
             <div className="flex flex-col lg:flex-row justify-between lg:items-center items-start w-full gap-5">
               <Link href={buttonUrl || '#'} className="lg:order-1 order-2">
                 <Button size="lg" variant="outline">
@@ -46,14 +46,14 @@ export default function ServicesComponent({
                 <div className="w-15 min-h-15 rounded-full bg-white flex items-center justify-center mb-5">
                   <Icon className="size-7 text-primary" />
                 </div>
-                <p
+                <h3
                   className={cn(
                     'text-balance text-xl font-medium border-b-2 pb-5',
                     service.style === 'featured' ? 'border-[#ffffff63]' : 'border-border',
                   )}
                 >
                   {service.title}
-                </p>
+                </h3>
 
                 <div className="flex flex-col gap-5 justify-between h-full">
                   <p className="text-balance text-xl leading-relaxed">{service.description}</p>

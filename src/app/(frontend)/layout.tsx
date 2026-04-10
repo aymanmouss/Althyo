@@ -21,12 +21,21 @@ const dmSans = DM_Sans({
 
 export const metadata = {
   title: {
-    default: 'Althyo — Agence Web & Solutions Digitales',
+    default: 'Althyo — Agence Web Immobilier & Développement Web',
     template: '%s | Althyo',
   },
-  description: 'Althyo fusionne créativité et technologie pour les TPE & PME.',
+  description:
+    'Agence web spécialisée dans la création de sites performants pour l’immobilier et les entreprises, avec CRM, gestion d’annonces, hébergement et maintenance.',
   metadataBase: new URL('https://althyo.fr'),
   robots: { index: true, follow: true },
+  openGraph: {
+    siteName: 'Althyo',
+    locale: 'fr_FR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
 }
 
 const jsonLd = {
@@ -42,7 +51,8 @@ const jsonLd = {
     postalCode: '75008',
     addressCountry: 'FR',
   },
-  description: 'Agence web spécialisée en développement sur-mesure pour TPE & PME.',
+  description:
+    'Agence web spécialisée dans la création de sites performants pour l’immobilier et les entreprises, avec CRM, gestion d’annonces, hébergement et maintenance.',
   priceRange: '€€',
   areaServed: 'France',
 }
