@@ -67,6 +67,11 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="6a240315-062d-4b7b-835c-bbca3bb89036"
+        ></script>
       </head>
       <body suppressHydrationWarning>
         <Header />
