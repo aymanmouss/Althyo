@@ -4,6 +4,7 @@ import { Poppins, DM_Sans } from 'next/font/google'
 import Header from '@/Header/Component'
 import Footer from '@/Footer/Footer'
 import CookieConsent from '@/components/CookieConsent'
+import Script from 'next/script'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -67,16 +68,17 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <script
-          defer
-          src="https://cloud.umami.is/script.js"
-          data-website-id="6a240315-062d-4b7b-835c-bbca3bb89036"
-        ></script>
       </head>
       <body suppressHydrationWarning>
         <Header />
         <main>{children}</main>
         <Footer />
+        <Script
+          defer
+          src="https://analytics.althyo.fr/script.js"
+          data-website-id="66d7f29e-284e-48a9-8ae8-8456b1b006ba"
+          strategy="afterInteractive"
+        />
         <CookieConsent variant="default" />
       </body>
     </html>
