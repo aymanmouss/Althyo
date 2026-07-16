@@ -25,7 +25,7 @@ export const ContactSubmissions: CollectionConfig = {
       async ({ doc, operation }) => {
         if (operation !== 'create') return
 
-        await fetch('https://api.brevo.com/v3/smtp/email', {
+        const res = await fetch('https://api.brevo.com/v3/smtp/email', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -45,6 +45,13 @@ export const ContactSubmissions: CollectionConfig = {
             `,
           }),
         })
+
+        if (!res.ok) {
+          const errText = await res.text()
+          console.error(`[Brevo API Error] Status ${res.status}: ${errText}`)
+        } else {
+          console.log('[Brevo API Success] Email sent successfully!')
+        }
       },
     ],
   },
