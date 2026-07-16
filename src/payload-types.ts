@@ -306,9 +306,9 @@ export interface Page {
             blockType: 'projects';
           }
         | {
-            title?: string | null;
-            description?: string | null;
-            cta?: string | null;
+            title: string;
+            description: string;
+            cta: string;
             id?: string | null;
             blockName?: string | null;
             blockType: 'contact';

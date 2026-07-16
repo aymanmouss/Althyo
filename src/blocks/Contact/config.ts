@@ -13,14 +13,17 @@ export const ContactBlock: Block = {
     {
       name: 'title',
       type: 'text',
+      required: true,
     },
     {
       name: 'description',
       type: 'textarea',
+      required: true,
     },
     {
       name: 'cta',
       type: 'text',
+      required: true,
     },
   ],
 }
