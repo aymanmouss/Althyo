@@ -8,11 +8,16 @@ import { ProjectsBlock } from '@/blocks/Projects/config'
 import { ContactBlock } from '@/blocks/Contact/config'
 import CalBlock from '@/blocks/Cal/config'
 import TestimonialBlock from '@/blocks/Testimonial/config'
+import { revalidatePage, revalidateDeletePage } from './hooks/revalidatePage'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
   admin: {
     useAsTitle: 'title',
+  },
+  hooks: {
+    afterChange: [revalidatePage],
+    afterDelete: [revalidateDeletePage],
   },
   fields: [
     {
